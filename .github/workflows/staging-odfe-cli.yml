@@ -40,10 +40,11 @@ jobs:
           repository: opendistro-for-elasticsearch/odfe-cli
           ref: main
       - name: IT
-        env: 
-          ODFE_ENDPOINT = "https://localhost:9200"
-          ODFE_USER = "admin"
-          ODFE_PASSWORD = "admin"
+#        env: 
+#          ODFE_ENDPOINT = "https://localhost:9200"
+#          ODFE_USER = "admin"
+#          ODFE_PASSWORD = "admin"
         run: |
+          ls -ltr;
           go clean -testcache;
           go test -tags=integration ./it;
