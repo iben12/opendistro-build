@@ -48,3 +48,8 @@ jobs:
           ls -ltr;
           go clean -testcache;
           go test -tags=integration ./it;
+        env: 
+          ODFE_ENDPOINT : "https://localhost:9200"
+          ODFE_USER : "admin"
+          ODFE_PASSWORD : "admin"
+
