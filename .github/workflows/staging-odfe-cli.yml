@@ -32,7 +32,7 @@ jobs:
       - name: Retrieve plugin tags
         run:  echo "p_tag_ism=$(.github/scripts/plugin_tag.sh opendistro-for-elasticsearch/odfe-cli)" >> $GITHUB_ENV
       - name: Checkout odfe-cli
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           repository: opendistro-for-elasticsearch/odfe-cli
           ref: ${{env.p_tag_ism}}
