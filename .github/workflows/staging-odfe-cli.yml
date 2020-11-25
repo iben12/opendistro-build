@@ -33,16 +33,17 @@ jobs:
 #        run:  echo "p_tag_ism=$(.github/scripts/plugin_tag.sh opendistro-for-elasticsearch/odfe-cli)" >> $GITHUB_ENV
         run: |
           echo "p_tag_ism=$(.github/scripts/plugin_tag.sh opendistro-for-elasticsearch/odfe-cli)" >> $GITHUB_ENV
-          echo $GITHUB_ENV
+          echo "$(.github/scripts/plugin_tag.sh opendistro-for-elasticsearch/odfe-cli)"
       - name: Checkout odfe-cli
         uses: actions/checkout@v2
         with:
           repository: opendistro-for-elasticsearch/odfe-cli
-          ref: ${{env.p_tag_ism}}
+          ref: main
       - name: IT
-        run: |
+        env: 
           ODFE_ENDPOINT="https://localhost:9200"
           ODFE_USER="admin"
           ODFE_PASSWORD="admin"
+        run: |
           go clean -testcache;
           go test -tags=integration ./it;
