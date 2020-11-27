@@ -39,6 +39,8 @@ jobs:
         with:
           repository: opendistro-for-elasticsearch/odfe-cli
           ref: main
+      - name: Build ODFE
+        run: docker-compose up -d
       - name: IT
 #        env: 
 #          ODFE_ENDPOINT = "https://localhost:9200"
