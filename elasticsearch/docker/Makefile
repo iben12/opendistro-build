@@ -139,7 +139,7 @@ venv: requirements.txt
 	    fi;\
 	fi;\
 	test -d venv || virtualenv --python=$$PYTHON3 venv || python3 -m venv venv;\
-	pip install --upgrade pip
+	python -m pip install --upgrade pip
 	pip install -r requirements.txt;\
 	touch venv;\
 
