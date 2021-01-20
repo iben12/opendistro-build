@@ -26,14 +26,14 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
+          
+      - name: Install required Packages
+        run: release-tools/scripts/required_packages.sh
 
       - name: Retrieve plugin tags 
         run: |
           echo "p_tag_gantt_chart=$(release-tools/scripts/plugin_tag.sh opendistro-for-elasticsearch/kibana-visualizations)" >> $GITHUB_ENV
           echo "es_version=$(release-tools/scripts/version-info.sh --es)" >> $GITHUB_ENV
-
-      - name: Install required Packages
-        run: release-tools/scripts/required_packages.sh
           
       - name: Checkout Kibana
         uses: actions/checkout@v2
