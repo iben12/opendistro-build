@@ -171,7 +171,7 @@ jobs:
 
       - name: Start ES and Kibana
         run: |
-          release-tools/scripts/setup_runners_service.sh zip --kibana-nosec
+          release-tools/scripts/setup_runners_service.sh deb --kibana-nosec
           echo "Add sample data"
           curl -XPOST 'http://localhost:5601/api/sample_data/flights' -H 'kbn-xsrf: true' -H 'Content-Type: application/json'
 
