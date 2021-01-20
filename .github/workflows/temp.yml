@@ -19,7 +19,7 @@ jobs:
       matrix:
         java: [14]
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Set up AWS Cred
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -43,7 +43,7 @@ jobs:
           token: ${{ secrets.ODFE_RELEASE_BOT_PUBLIC_PRIVATE_READ_WRITE_TOKEN }}
           path: kibana
            
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
         with:
           repository: opendistro-for-elasticsearch/kibana-visualizations
           # ref: ${{env.p_tag_gantt_chart}}
@@ -76,6 +76,7 @@ jobs:
       - name: Bootstrap the plugin
         run: |
           cd ./kibana/plugins
+          ls -ltr
           cp -rp kibana-visualizations/gantt-chart/ .
           rm -rf kibana-visualizations/
           cd gantt-chart
