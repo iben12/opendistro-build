@@ -43,7 +43,7 @@ jobs:
           token: ${{ secrets.ODFE_RELEASE_BOT_PUBLIC_PRIVATE_READ_WRITE_TOKEN }}
           path: kibana
            
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
         with:
           repository: opendistro-for-elasticsearch/kibana-visualizations
           # ref: ${{env.p_tag_gantt_chart}}
@@ -80,6 +80,7 @@ jobs:
           cp -rp kibana-visualizations/gantt-chart/ .
           rm -rf kibana-visualizations/
           cd gantt-chart
+          ls -ltr
           yarn kbn bootstrap
 
       - name: Start ES and Kibana
