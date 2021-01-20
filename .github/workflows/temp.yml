@@ -31,6 +31,9 @@ jobs:
         run: |
           echo "p_tag_gantt_chart=$(.github/scripts/plugin_tag.sh opendistro-for-elasticsearch/kibana-visualizations)" >> $GITHUB_ENV
           echo "es_version=$(./bin/version-info --es)" >> $GITHUB_ENV
+
+      - name: Install required Packages
+        run: release-tools/scripts/required_packages.sh
           
       - name: Checkout Kibana
         uses: actions/checkout@v2
