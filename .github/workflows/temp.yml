@@ -45,7 +45,7 @@ jobs:
           repository: opendistro-for-elasticsearch/kibana-visualizations
           # ref: ${{env.p_tag_gantt_chart}}
           ref: main
-          path: kibana/plugins/gantt-chart
+          path: kibana/plugins/kibana-visualizations
       
       - name: Setup Java
         uses: actions/setup-java@v1
