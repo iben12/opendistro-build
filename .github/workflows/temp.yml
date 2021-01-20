@@ -175,7 +175,7 @@ jobs:
           curl -XPOST 'http://localhost:5601/api/sample_data/flights' -H 'kbn-xsrf: true' -H 'Content-Type: application/json'
 
       - name: run IT
-        run: |
-          cd kibana/plugins/kibana-reports
-          ls -ltr
-          yarn cypress:run
+        uses: cypress-io/github-action@v2.5.0
+        with:
+          working-directory: kibana/plugins/kibana-reports
+          command: yarn cypress:run
