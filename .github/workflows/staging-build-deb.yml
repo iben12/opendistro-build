@@ -857,7 +857,8 @@ jobs:
       - name: Start ES and Kibana
         run: release-tools/scripts/setup_runners_service.sh deb --kibana
  
-      - name: Run IT
-        run: |
-          cd ./kibana/plugins/alerting-kibana-plugin
-          yarn run cypress run --env security_enabled=true
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v2
+        with:
+          working-directory: kibana/plugins/alerting-kibana-plugin
+          command: yarn run cypress run --env security_enabled=true
