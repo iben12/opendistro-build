@@ -797,7 +797,7 @@ jobs:
   #         yarn test:jest_server
 
   Test-Alerting-KIBANA:
-    needs: [sign-deb-artifacts]
+    # needs: [sign-deb-artifacts]
     runs-on: [ubuntu-18.04]
     name: Test-Alerting-KIBANA
     strategy:
