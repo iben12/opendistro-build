@@ -416,7 +416,7 @@ jobs:
         run: release-tools/scripts/required_packages.sh
 
       - name: Retrieve plugin tags 
-        run:  echo "p_tag_sec=$(.github/scripts/plugin_tag.sh opendistro-for-elasticsearch/security)" >> $GITHUB_ENV
+        run:  echo "p_tag_sec=$(release-tools/scripts/plugin_tag.sh opendistro-for-elasticsearch/security)" >> $GITHUB_ENV
 
       - uses: actions/checkout@v1
         with:
@@ -430,7 +430,7 @@ jobs:
 
       - name: IT
         run: |
-          .github/scripts/setup_runners_service.sh deb --es
+          release-tools/scripts/setup_runners_service.sh deb --es
           export PATH=$JAVA_HOME:$PATH; cd $GITHUB_WORKSPACE/../security; pwd
           mvn -X -Dtest=IntegrationTests test
   
